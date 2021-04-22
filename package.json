@@ -8,20 +8,16 @@
   "author": "Oded Leiba <oded@kzencorp.com>",
   "license": "GPL-3.0",
   "scripts": {
-    "start-p1-server": "node ./demo/party1.js",
     "clean": "rm -rf dist",
     "build-rust": "neon build -r",
     "build-ts": "tsc",
     "build": "npm run build-rust && npm run build-ts",
-    "test": "mocha",
-    "prepublishOnly": "npm run build && npm test",
-    "postinstall": "npm run build-rust"
+    "postinstall": "npm run build && mv native/index.node native/index && mkdir native/index.node && mv native/index native/index.node/index"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.8",
-    "@zilliqa-js/crypto": "^0.7.5",
     "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "ts-mocha": "^7.0.0",
