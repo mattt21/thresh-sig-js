@@ -9,7 +9,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "clean": "rm -rf dist",
-    "build-rust": "neon build -r",
+    "build-rust": "neon build --release",
     "build-ts": "tsc",
     "build": "npm run build-rust && npm run build-ts",
     "postinstall": "npm run build && mv native/index.node native/index && mkdir native/index.node && mv native/index native/index.node/index"
